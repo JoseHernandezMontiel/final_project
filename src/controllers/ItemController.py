@@ -104,8 +104,8 @@ def update(id):
 
    serviceResponse = service.update(item)
 
-   if "error" in serviceResponse:
-      return serviceResponse, 400
+   if serviceResponse is False:
+      return {"error": "Item sku already exists"}, 400
 
    return {
       "id": serviceResponse.id,
@@ -116,6 +116,8 @@ def update(id):
       "quantity": serviceResponse.quantity,
       "expiration_date": serviceResponse.expiration_date
    }
+
+
 
 # DELETE
 

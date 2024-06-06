@@ -25,12 +25,7 @@ class Service:
    
 
    def update(self, item: Item):      
-      item = self.repository.update(item)
-
-      if item is False:
-         return {"error": "Item sku already exists"}
-      
-      return item
+      return self.repository.update(item)
 
 
    def destroy(self, id):
