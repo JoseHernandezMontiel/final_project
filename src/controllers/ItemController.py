@@ -28,8 +28,8 @@ def store():
 
    serviceResponse = service.store(item)
 
-   if "error" in serviceResponse:
-      return serviceResponse, 400
+   if serviceResponse is False:
+      return {"error": "Item sku already exists"}, 400
 
    return {
       "id": serviceResponse.id,

@@ -7,10 +7,7 @@ class Service:
 
    def store(self, item: Item):
       item = self.repository.create(item)
-      
-      if item is False:
-         return {"error": "Item sku already exists"}
-         
+            
       return item
    
 
