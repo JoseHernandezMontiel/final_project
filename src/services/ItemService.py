@@ -7,9 +7,6 @@ class Service:
 
    def store(self, item: Item):
       item = self.repository.create(item)
-
-      if item.id is not None & self.repository.find(item.id) is not None:
-         return {"error": "Item id already exists"}
       
       if item is False:
          return {"error": "Item sku already exists"}
