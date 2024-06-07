@@ -69,7 +69,7 @@ class SqlAlchemyRepository(AbstractRepository):
       return item
       
    def all(self):
-      return self.session.query(Item).order_by(Item.id).all()
+      return self.session.query(Item).order_by(Item.sku).all()
       
    def update(self, item: Item):
       if (self.session.query(Item).filter((Item.id != item.id) & (Item.sku == item.sku)).count() > 0):

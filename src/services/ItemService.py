@@ -1,3 +1,4 @@
+import requests
 from models.Item import Item, SqlAlchemyRepository
 
 class Service:
@@ -35,3 +36,14 @@ class Service:
       self.repository.delete(id)
       
       return {"message": "Item deleted"}
+   
+   def convert(self, price, currency):
+      access_key = 'cc9ced7d7834ea301647a894ed33de65'
+
+      url = f"http://api.exchangeratesapi.io/v1/latest?access_key={access_key}"
+      
+      response = requests.get(url).json()
+
+      usd_price_to_eur = price / response['rates']['USD']
+
+      return usd_price_to_eur * response['rates'][currency]
