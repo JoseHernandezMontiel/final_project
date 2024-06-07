@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "a3a108f1-df52-4c28-81de-8654b68b65d5",
+		"name": "grocery_rest_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "32952761"
+	},
+	"item": [
+		{
+			"name": "Item Store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sku\": \"3\",\r\n    \"name\": \"4\",\r\n    \"description\": \"5\",\r\n    \"price\": 6,\r\n    \"quantity\": 7,\r\n    \"expiration_date\": \"2021-12-03\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1/items"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"sku\": \"2\",\r\n    \"name\": \"1\",\r\n    \"description\": \"2\",\r\n    \"price\": 3,\r\n    \"quantity\": 4,\r\n    \"expiration_date\": \"2021-12-12\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://127.0.0.1/items/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Show",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost/items/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cache-Control",
+						"value": "no-cache",
+						"name": "cache-control",
+						"type": "text"
+					},
+					{
+						"key": "Postman-Token",
+						"value": "<calculated when request is sent>",
+						"name": "postman-token",
+						"type": "text"
+					},
+					{
+						"key": "Host",
+						"value": "<calculated when request is sent>",
+						"name": "host",
+						"type": "text"
+					},
+					{
+						"key": "User-Agent",
+						"value": "PostmanRuntime/7.32.1",
+						"name": "user-agent",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*",
+						"name": "accept",
+						"type": "text"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br",
+						"name": "accept-encoding",
+						"type": "text"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive",
+						"name": "connection",
+						"type": "text"
+					}
+				],
+				"url": "http://127.0.0.1/items"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Destroy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": "http://localhost/items/2"
+			},
+			"response": []
+		},
+		{
+			"name": "Item Convert",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1/items/30/convert?currency=MXN",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"path": [
+						"items",
+						"30",
+						"convert"
+					],
+					"query": [
+						{
+							"key": "currency",
+							"value": "MXN"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Convert 3rd Party",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.exchangeratesapi.io/v1/latest?access_key=cc9ced7d7834ea301647a894ed33de65",
+					"protocol": "http",
+					"host": [
+						"api",
+						"exchangeratesapi",
+						"io"
+					],
+					"path": [
+						"v1",
+						"latest"
+					],
+					"query": [
+						{
+							"key": "access_key",
+							"value": "cc9ced7d7834ea301647a894ed33de65"
+						},
+						{
+							"key": "from",
+							"value": "USD",
+							"disabled": true
+						},
+						{
+							"key": "to",
+							"value": "MXN",
+							"disabled": true
+						},
+						{
+							"key": "amount",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
